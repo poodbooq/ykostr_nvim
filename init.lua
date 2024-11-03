@@ -41,5 +41,5 @@ require('lazy').setup {
     require 'plugins.harpoon',
     require 'plugins.project',
     require 'plugins.mini',
-    require 'plugins.autosession',
+    require 'plugins.gomodifytags',
 }
