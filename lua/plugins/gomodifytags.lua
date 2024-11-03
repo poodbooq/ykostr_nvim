@@ -31,5 +31,16 @@ return {
                 vim.notify('gomodifytags not loaded', vim.log.levels.ERROR)
             end
         end, { nargs = '+' })
+        -- Define GoTagRm command
+        vim.api.nvim_create_user_command('GoTagRm', function(opts)
+            local gomodifytags = require 'gomodifytags'
+
+            if gomodifytags and gomodifytags.GoRemoveTags then
+                local tag = opts.fargs[1]
+                gomodifytags.GoRemoveTags(tag)
+            else
+                vim.notify('gomodifytags not loaded or GoRemoveTags function not available', vim.log.levels.ERROR)
+            end
+        end, { nargs = 1 }) -- `nargs = 1` requires exactly one argument
     end,
 }
