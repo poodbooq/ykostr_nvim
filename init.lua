@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
     require 'plugins.colortheme',
-    require 'plugins.neotree',
+    require 'plugins.filemanager',
     require 'plugins.bufferline',
     require 'plugins.lualine',
     require 'plugins.treesitter',
@@ -42,4 +42,7 @@ require('lazy').setup {
     require 'plugins.project',
     require 'plugins.mini',
     require 'plugins.gomodifytags',
+    require 'plugins.autosession',
+    require 'plugins.fine-cmdline',
+    require 'plugins.git',
 }
