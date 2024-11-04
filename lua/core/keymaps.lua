@@ -14,7 +14,7 @@ local function map_opts(extra_opts)
 end
 
 -- Save file with description
-vim.keymap.set('n', '<C-s>', '<cmd> w <CR>', map_opts { desc = 'Save file' })
+vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd> wa <CR><Esc>', map_opts { desc = 'Save file' })
 
 -- Quit file with description
 vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', map_opts { desc = 'Quit file' })
@@ -40,8 +40,8 @@ vim.keymap.set('n', '<Left>', ':vertical resize +2<CR>', opts)
 vim.keymap.set('n', '<Right>', ':vertical resize -2<CR>', opts)
 
 -- Buffers
-vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
-vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
+vim.keymap.set('n', '<S-l>', ':bnext<CR>', opts)
+vim.keymap.set('n', '<S-h>', ':bprevious<CR>', opts)
 vim.keymap.set('n', '<leader>x', ':Bdelete!<CR>', opts) -- close buffer
 vim.keymap.set('n', '<leader>bo', function()
     local current_buf = vim.api.nvim_get_current_buf()
@@ -54,8 +54,8 @@ end, { desc = 'Close other buffers' })
 vim.keymap.set('n', '``', '<cmd>b#<CR>', { desc = 'Go to previous buffer' })
 
 -- Window management
-vim.keymap.set('n', '<leader>v', '<C-w>v', opts)      -- split window vertically
-vim.keymap.set('n', '<leader>V', '<C-w>s', opts)      -- split window horizontally
+vim.keymap.set('n', '<leader>\\', '<C-w>v', opts)     -- split window vertically
+vim.keymap.set('n', '<leader>-', '<C-w>s', opts)      -- split window horizontally
 vim.keymap.set('n', '<leader>se', '<C-w>=', opts)     -- make split windows equal width & height
 vim.keymap.set('n', '<leader>xs', ':close<CR>', opts) -- close current split window
 
@@ -110,3 +110,18 @@ local function toggle_transparency()
 end
 
 vim.keymap.set('n', '<leader>Q', '<cmd>qa<CR>', { noremap = true, silent = true, desc = 'Quit Neovim' })
+
+local function change_font_size(delta)
+    local guifont = vim.opt.guifont:get()[1] or 'Berkeley Mono:h14' -- default font and size
+    local font, size = guifont:match '^(.-):h(%d+)'
+    size = tonumber(size) + delta
+    vim.opt.guifont = string.format('%s:h%d', font, size)
+end
+
+-- Key mappings for increasing and decreasing font size
+vim.keymap.set('n', '<D-=>', function()
+    change_font_size(1)
+end, { desc = 'Increase font size' })
+vim.keymap.set('n', '<D-->', function()
+    change_font_size(-1)
+end, { desc = 'Decrease font size' })

@@ -15,6 +15,10 @@ return { -- Highlight, edit, and navigate code
         },
 
         ensure_installed = {
+            'c',
+            'vim',
+            'vimdoc',
+            'query',
             'go',
             'gomod',
             'gowork',

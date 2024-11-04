@@ -46,4 +46,7 @@ require('lazy').setup {
     require 'plugins.fine-cmdline',
     require 'plugins.git',
     require 'plugins.mini-surround',
+    require 'plugins.better-escape',
+    require 'plugins.neorg',
+    require 'plugins.go-nvim',
 }

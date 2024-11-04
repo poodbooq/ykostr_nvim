@@ -4,13 +4,16 @@ return {
         opts = {
             windows = {
                 preview = true,
-                width_focus = 30,
-                width_preview = 30,
+                width_focus = 60,
+                width_preview = 60,
             },
             options = {
-                -- Whether to use for editing directories
-                -- Disabled by default in LazyVim because neo-tree is used for that
-                use_as_default_explorer = false,
+                use_as_default_explorer = true,
+            },
+            use_as_default_explorer = true,
+            mappings = {
+                go_in = 'L',
+                go_in_plus = 'l',
             },
         },
         keys = {
@@ -106,34 +109,13 @@ return {
                     vim.lsp.on_rename(event.data.from, event.data.to)
                 end,
             })
+
+            -- vim.api.nvim_create_autocmd('User', {
+            --     pattern = 'MiniFilesGoIn',
+            --     callback = function()
+            --         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('q', true, true, true), 'n', true)
+            --     end,
+            -- })
         end,
     },
-    -- {
-    --     'stevearc/oil.nvim',
-    --     ---@module 'oil'
-    --     ---@type oil.SetupOpts
-    --     opts = {},
-    --     -- Optional dependencies
-    --     dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-    --     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-    -- },
-    -- 'kelly-lin/ranger.nvim',
-    -- config = function()
-    --     require('ranger-nvim').setup {
-    --         replace_netrw = true,
-    --         ui = {
-    --             border = 'none',
-    --             height = 1,
-    --             width = 1,
-    --             x = 0.5,
-    --             y = 0.5,
-    --         },
-    --     }
-    --     vim.api.nvim_set_keymap('n', '<leader>ef', '', {
-    --         noremap = true,
-    --         callback = function()
-    --             require('ranger-nvim').open(true)
-    --         end,
-    --     })
-    -- end,
 }

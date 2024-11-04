@@ -4,6 +4,14 @@ return {
         version = false,
     },
     {
+        'echasnovski/mini.indentscope',
+        opts = {},
+    },
+    {
+        'echasnovski/mini.move',
+        opts = {},
+    },
+    {
         'echasnovski/mini.surround',
         recommended = true,
         opts = {

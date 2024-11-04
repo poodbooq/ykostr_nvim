@@ -9,15 +9,15 @@ return {
             options = {
                 offsets = {
                     {
-                        filetype = 'neo-tree', -- Adjusts for Neotree
+                        filetype = 'neo-tree',  -- Adjusts for Neotree
                         text = 'File Explorer', -- Optional text to display next to Neotree
-                        text_align = 'center', -- Aligns the text
-                        separator = true, -- Adds a separator between Neotree and tabs
+                        text_align = 'center',  -- Aligns the text
+                        separator = true,       -- Adds a separator between Neotree and tabs
                     },
                 },
-                mode = 'buffers', -- set to "tabs" to only show tabpages instead
-                themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
-                numbers = 'none', -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+                mode = 'buffers',              -- set to "tabs" to only show tabpages instead
+                themable = true,               -- allows highlight groups to be overriden i.e. sets highlights as default
+                numbers = 'none',              -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
                 close_command = 'Bdelete! %d', -- can be a string | function, see "Mouse actions"
                 buffer_close_icon = '✗',
                 close_icon = '✗',
@@ -55,7 +55,7 @@ return {
                 },
                 buffer_selected = {
                     bold = true,
-                    italic = false,
+                    italic = true,
                 },
                 -- separator_selected = {},
                 -- tab_selected = {},
