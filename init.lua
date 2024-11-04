@@ -45,4 +45,5 @@ require('lazy').setup {
     require 'plugins.autosession',
     require 'plugins.fine-cmdline',
     require 'plugins.git',
+    require 'plugins.mini-surround',
 }

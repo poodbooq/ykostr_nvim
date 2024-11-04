@@ -43,11 +43,20 @@ vim.keymap.set('n', '<Right>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
 vim.keymap.set('n', '<leader>x', ':Bdelete!<CR>', opts) -- close buffer
+vim.keymap.set('n', '<leader>bo', function()
+    local current_buf = vim.api.nvim_get_current_buf()
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if buf ~= current_buf and vim.api.nvim_buf_is_loaded(buf) then
+            vim.api.nvim_buf_delete(buf, { force = true })
+        end
+    end
+end, { desc = 'Close other buffers' })
+vim.keymap.set('n', '``', '<cmd>b#<CR>', { desc = 'Go to previous buffer' })
 
 -- Window management
-vim.keymap.set('n', '<leader>v', '<C-w>v', opts) -- split window vertically
-vim.keymap.set('n', '<leader>h', '<C-w>s', opts) -- split window horizontally
-vim.keymap.set('n', '<leader>se', '<C-w>=', opts) -- make split windows equal width & height
+vim.keymap.set('n', '<leader>v', '<C-w>v', opts)      -- split window vertically
+vim.keymap.set('n', '<leader>V', '<C-w>s', opts)      -- split window horizontally
+vim.keymap.set('n', '<leader>se', '<C-w>=', opts)     -- make split windows equal width & height
 vim.keymap.set('n', '<leader>xs', ':close<CR>', opts) -- close current split window
 
 -- Navigate between splits
@@ -100,9 +109,4 @@ local function toggle_transparency()
     transparent_enabled = not transparent_enabled
 end
 
--- Map the function to <leader>bg
-vim.keymap.set('n', '<leader>bg', toggle_transparency, { desc = 'Toggle Transparency' })
-
 vim.keymap.set('n', '<leader>Q', '<cmd>qa<CR>', { noremap = true, silent = true, desc = 'Quit Neovim' })
-
--- bsidian keymaps
