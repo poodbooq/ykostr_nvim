@@ -104,3 +104,5 @@ end, { desc = 'Increase font size' })
 vim.keymap.set('n', '<D-->', function()
     change_font_size(-1)
 end, { desc = 'Decrease font size' })
+
+vim.keymap.set('n', '<leader>G', '<cmd>Neogit<CR>', map_opts { desc = 'Neogit' })
