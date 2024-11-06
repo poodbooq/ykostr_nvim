@@ -20,6 +20,7 @@ return {
     },
     setup = {
         gopls = function(_, opts)
+            local lsp = require 'lspconfig'
             -- workaround for gopls not supporting semanticTokensProvider
             -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
             lsp.on_attach(function(client, _)
