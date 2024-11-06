@@ -6,7 +6,7 @@ return {
         {
             'williamboman/mason.nvim',
             config = true,
-            opts = { ensure_installed = { 'goimports', 'gofumpt', 'gomodifytags', 'impl', 'delve', 'sqlfluff' } },
+            opts = { ensure_installed = { 'gopls', 'goimports', 'gofumpt', 'gomodifytags', 'impl', 'delve', 'sqlfluff' } },
         }, -- NOTE: Must be loaded before dependants
         'williamboman/mason-lspconfig.nvim',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -24,6 +24,7 @@ return {
             -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
             lsp.on_attach(function(client, _)
                 if not client.server_capabilities.semanticTokensProvider then
+                    vim.cmd('cd ' .. vim.fn.getcwd())
                     local semantic = client.config.capabilities.textDocument.semanticTokens
                     client.server_capabilities.semanticTokensProvider = {
                         full = true,

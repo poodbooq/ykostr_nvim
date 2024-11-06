@@ -37,14 +37,17 @@ return {
         workspaces = {
             {
                 name = 'work',
-                path =
-                '/Users/yevhen.kostryka/Library/Mobile Documents/iCloud~md~obsidian/Documents/obsidian_vaults/work',
+                path = '/Users/yevhen.kostryka/Library/Mobile Documents/iCloud~md~obsidian/Documents/Work',
             },
             {
-                name = 'personal',
-                path =
-                '/Users/yevhen.kostryka/Library/Mobile Documents/iCloud~md~obsidian/Documents/obsidian_vaults/personal',
+                name = 'visual novel',
+                path = '/Users/yevhen.kostryka/Library/Mobile Documents/iCloud~md~obsidian/Documents/Visual Novel',
             },
+        },
+        templates = {
+            folder = 'templates',
+            date_format = '%Y-%m-%d-%a',
+            time_format = '%H:%M',
         },
 
         daily_notes = {
@@ -59,7 +62,7 @@ return {
             -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
             template = nil,
         },
-        new_notes_location = 'notes_subdir',
+        new_notes_location = 'inbox',
         completion = {
             -- Set to false to disable completion.
             nvim_cmp = true,

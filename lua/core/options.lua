@@ -77,3 +77,5 @@ vim.api.nvim_create_autocmd('VimEnter', {
         end
     end,
 })
+
+vim.opt.shortmess:append 'c'

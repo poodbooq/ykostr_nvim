@@ -10,14 +10,15 @@ return {
                 ['core.dirman'] = {
                     config = {
                         workspaces = {
-                            notes = '~/notes',
+                            notes = '~/notes/personal_notes',
+                            work = '~/notes/work_notes',
                         },
                         default_workspace = 'notes',
                     },
                 },
             },
         }
-
+        vim.g.maplocalleader = ','
         vim.wo.foldlevel = 99
         vim.wo.conceallevel = 2
     end,

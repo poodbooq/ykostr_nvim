@@ -23,7 +23,6 @@ require('lazy').setup {
     require 'plugins.lsp',
     require 'plugins.autocompletion',
     require 'plugins.none-ls',
-    require 'plugins.neotest',
     require 'plugins.conform',
     require 'plugins.nvim-lint',
     require 'plugins.lsp_signature',
@@ -48,5 +47,5 @@ require('lazy').setup {
     require 'plugins.mini-surround',
     require 'plugins.better-escape',
     require 'plugins.neorg',
-    require 'plugins.go-nvim',
+    require 'plugins.ukrainian',
 }

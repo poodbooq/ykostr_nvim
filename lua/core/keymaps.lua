@@ -54,9 +54,9 @@ end, { desc = 'Close other buffers' })
 vim.keymap.set('n', '``', '<cmd>b#<CR>', { desc = 'Go to previous buffer' })
 
 -- Window management
-vim.keymap.set('n', '<leader>\\', '<C-w>v', opts)     -- split window vertically
-vim.keymap.set('n', '<leader>-', '<C-w>s', opts)      -- split window horizontally
-vim.keymap.set('n', '<leader>se', '<C-w>=', opts)     -- make split windows equal width & height
+vim.keymap.set('n', '<leader>\\', '<C-w>v', opts) -- split window vertically
+vim.keymap.set('n', '<leader>-', '<C-w>s', opts) -- split window horizontally
+vim.keymap.set('n', '<leader>se', '<C-w>=', opts) -- make split windows equal width & height
 vim.keymap.set('n', '<leader>xs', ':close<CR>', opts) -- close current split window
 
 -- Navigate between splits
@@ -65,14 +65,14 @@ vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', opts)
 vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', opts)
 vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', opts)
 
--- Tabs
--- vim.keymap.set('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
--- vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', opts) -- close current tab
--- vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts) --  go to next tab
--- vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
+vim.keymap.set('n', '<C-л>', ':wincmd k<CR>', opts)
+vim.keymap.set('n', '<C-о>', ':wincmd j<CR>', opts)
+vim.keymap.set('n', '<C-р>', ':wincmd h<CR>', opts)
+vim.keymap.set('n', '<C-д>', ':wincmd l<CR>', opts)
 
 -- Toggle line wrapping
 vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', opts)
+vim.keymap.set('n', '<leader>дц', '<cmd>set wrap!<CR>', opts)
 
 -- Stay in indent mode
 vim.keymap.set('v', '<', '<gv', opts)
@@ -80,34 +80,13 @@ vim.keymap.set('v', '>', '>gv', opts)
 
 -- Keep last yanked when pasting
 vim.keymap.set('v', 'p', '"_dP', opts)
+vim.keymap.set('v', 'з', '"_вЗ', opts)
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
--- Define a toggle transparency function
-local transparent_enabled = true
-
-local function toggle_transparency()
-    if not transparent_enabled then
-        vim.cmd [[
-      highlight Normal guibg=#1e1e1e
-      highlight NonText guibg=#1e1e1e
-      highlight Normal ctermbg=black
-      highlight NonText ctermbg=black
-    ]]
-    else
-        vim.cmd [[
-      highlight Normal guibg=none
-      highlight NonText guibg=none
-      highlight Normal ctermbg=none
-      highlight NonText ctermbg=none
-    ]]
-    end
-    transparent_enabled = not transparent_enabled
-end
 
 vim.keymap.set('n', '<leader>Q', '<cmd>qa<CR>', { noremap = true, silent = true, desc = 'Quit Neovim' })
 
