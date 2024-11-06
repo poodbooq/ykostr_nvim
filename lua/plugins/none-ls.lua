@@ -6,27 +6,28 @@ return {
     },
     config = function()
         local null_ls = require 'null-ls'
-        local formatting = null_ls.builtins.formatting   -- to setup formatters
+        local formatting = null_ls.builtins.formatting -- to setup formatters
         local diagnostics = null_ls.builtins.diagnostics -- to setup lintes
 
         -- Formatters & linters for mason to install
         require('mason-null-ls').setup {
             ensure_installed = {
-                'prettier',      -- ts/js and markdown formatter
-                'stylua',        -- lua formatter
+                'prettier', -- ts/js and markdown formatter
+                'stylua', -- lua formatter
                 -- "eslint_d", -- ts/js linter
-                'shfmt',         -- Shell formatter
-                'checkmake',     -- linter for Makefiles
-                'ruff',          -- Python linter and formatter
-                'gofmt',         -- Go formatter
+                'shfmt', -- Shell formatter
+                'checkmake', -- linter for Makefiles
+                'gofmt', -- Go formatter
+                'golines',
+                'gofumpt',
                 'golangci-lint', -- Go linter
                 -- "rustfmt", -- Rust formatter
                 -- "shellcheck", -- Bash linter
                 'terraform_fmt', -- Terraform formatter
-                'eslint',        -- TS linter
-                'markdownlint',  -- Markdown linter
+                'eslint', -- TS linter
+                'markdownlint', -- Markdown linter
                 -- "dockerfile_lint", -- Dockerfile linter
-                'prettierd',     -- Docker Compose YAML formatter (optional: or prettier)
+                'prettierd', -- Docker Compose YAML formatter (optional: or prettier)
             },
             automatic_installation = true,
         }
@@ -43,16 +44,11 @@ return {
 
             -- Go
             formatting.gofmt,
+            formatting.gofumpt,
+            formatting.golines,
+            formatting.goimports,
             diagnostics.golangci_lint,
 
-            -- Rust
-            -- formatting.rustfmt,
-
-            -- Bash
-            -- diagnostics.shellcheck,
-
-            -- TypeScript/JavaScript
-            -- diagnostics.eslint_d,
             formatting.prettier.with {
                 filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' },
             },
@@ -77,7 +73,9 @@ return {
                     nls.builtins.code_actions.gomodifytags,
                     nls.builtins.code_actions.impl,
                     nls.builtins.formatting.goimports,
+                    nls.builtins.formatting.golangci_lint,
                     nls.builtins.formatting.gofumpt,
+                    nls.builtins.formatting.golines,
                 })
             end,
             sources = sources,
