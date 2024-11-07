@@ -57,4 +57,22 @@ return {
             vim.cmd [[colorscheme catppuccin]]
         end,
     },
+    {
+        'Shatur/neovim-ayu',
+    },
+    {
+        'shaunsingh/nord.nvim',
+    },
+    {
+        'navarasu/onedark.nvim',
+    },
+    {
+        'lunarvim/darkplus.nvim',
+    },
+    {
+        'EdenEast/nightfox.nvim',
+    },
+    {
+        'Mofiqul/dracula.nvim',
+    },
 }

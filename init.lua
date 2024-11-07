@@ -23,7 +23,7 @@ require('lazy').setup {
     require 'plugins.lsp',
     require 'plugins.autocompletion',
     require 'plugins.none-ls',
-    require 'plugins.conform',
+    -- require 'plugins.conform',
     require 'plugins.nvim-lint',
     require 'plugins.lsp_signature',
     require 'plugins.gitsigns',
@@ -48,4 +48,7 @@ require('lazy').setup {
     require 'plugins.better-escape',
     require 'plugins.neorg',
     require 'plugins.ukrainian',
+    require 'plugins.undotree',
+    require 'plugins.dadbod',
+    require 'plugins.themery',
 }

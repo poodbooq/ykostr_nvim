@@ -42,7 +42,7 @@ vim.keymap.set('n', '<Right>', ':vertical resize -2<CR>', opts)
 -- Buffers
 vim.keymap.set('n', '<S-l>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-h>', ':bprevious<CR>', opts)
-vim.keymap.set('n', '<leader>x', ':Bdelete!<CR>', opts) -- close buffer
+vim.keymap.set('n', '<leader>bx', ':Bdelete!<CR>', opts) -- close buffer
 vim.keymap.set('n', '<leader>bo', function()
     local current_buf = vim.api.nvim_get_current_buf()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
@@ -106,3 +106,5 @@ vim.keymap.set('n', '<D-->', function()
 end, { desc = 'Decrease font size' })
 
 vim.keymap.set('n', '<leader>G', '<cmd>Neogit<CR>', map_opts { desc = 'Neogit' })
+
+vim.keymap.set('n', 'ZZ', ':qa<CR>', map_opts { desc = 'Neogit' })
